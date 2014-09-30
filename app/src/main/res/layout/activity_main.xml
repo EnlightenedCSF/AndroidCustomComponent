@@ -9,8 +9,12 @@
     tools:context=".MainActivity">
 
     <ru.vsu.csf.enlightened.customcomponent.MyComponent.ProfileTitle
+        xmlns:attr="http://http://schemas.android.com/apk/res/ru.vsu.csf.enlightened.customcomponent.MyComponent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        attr:mainText="Lyke Wan Dirge"
+        attr:extraText="somt@naty.cot"
+        attr:profileIcon="@drawable/abc_ic_search"
         />
 
 </RelativeLayout>

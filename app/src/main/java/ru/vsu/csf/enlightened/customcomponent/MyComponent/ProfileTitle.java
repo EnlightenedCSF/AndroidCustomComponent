@@ -2,8 +2,11 @@ package ru.vsu.csf.enlightened.customcomponent.MyComponent;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import ru.vsu.csf.enlightened.customcomponent.R;
 
@@ -12,8 +15,9 @@ import ru.vsu.csf.enlightened.customcomponent.R;
  */
 public class ProfileTitle extends RelativeLayout{
 
-    private String mainText;
-    private String extraText;
+    private TextView mainText;
+    private TextView extraText;
+    private ImageView iconView;
 
     public ProfileTitle(Context context) {
         super(context);
@@ -37,8 +41,22 @@ public class ProfileTitle extends RelativeLayout{
         TypedArray array = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ProfileTitle, 0, 0);
 
         try {
-            mainText = array.getString(R.styleable.ProfileTitle_mainText);
-            extraText = array.getString(R.styleable.ProfileTitle_extraText);
+            String main = array.getString(R.styleable.ProfileTitle_mainText);
+            String extra = array.getString(R.styleable.ProfileTitle_extraText);
+            Drawable icon = array.getDrawable(R.styleable.ProfileTitle_profileIcon);
+            if (icon == null)
+                icon = getResources().getDrawable(R.drawable.ic_launcher);
+
+            mainText = (TextView) findViewById(R.id.profile_title_name);
+            extraText = (TextView) findViewById(R.id.profile_title_email);
+            iconView = (ImageView) findViewById(R.id.profile_title_icon);
+
+            mainText.setText(main);
+            extraText.setText(extra);
+            iconView.setImageDrawable(icon);
+
+            invalidate();
+            requestLayout();
         }
         finally {
             array.recycle();

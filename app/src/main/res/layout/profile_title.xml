@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:src="@drawable/ic_launcher"
         android:contentDescription="@string/profile_title_icon_comment" />
 
@@ -25,14 +26,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="22sp"
-            android:text="Jake Finn"
             />
 
         <TextView
             android:id="@+id/profile_title_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="adventure@time.com"
             />
     </LinearLayout>
 

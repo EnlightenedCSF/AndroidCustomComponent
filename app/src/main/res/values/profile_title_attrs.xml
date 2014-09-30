@@ -3,5 +3,6 @@
     <declare-styleable name="ProfileTitle">
         <attr name="mainText" format="string" />
         <attr name="extraText" format="string" />
+        <attr name="profileIcon" format="reference" />
     </declare-styleable>
 </resources>
