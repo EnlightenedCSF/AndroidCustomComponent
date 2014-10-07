@@ -10,10 +10,8 @@ import android.widget.TextView;
 
 import ru.vsu.csf.enlightened.customcomponent.R;
 
-/**
- * Created by enlightenedcsf on 29.09.14.
- */
-public class ProfileTitle extends RelativeLayout{
+/** Created by enlightenedcsf on 29.09.14. */
+public class ProfileTitle extends RelativeLayout {
 
     private TextView mainText;
     private TextView extraText;
@@ -61,6 +59,5 @@ public class ProfileTitle extends RelativeLayout{
         finally {
             array.recycle();
         }
-
     }
 }
