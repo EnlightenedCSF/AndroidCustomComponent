@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import ru.vsu.csf.enlightened.customcomponent.Model.Profile;
 import ru.vsu.csf.enlightened.customcomponent.R;
 
 /** Created by enlightenedcsf on 29.09.14. */
@@ -16,6 +18,11 @@ public class ProfileTitle extends RelativeLayout {
     private TextView mainText;
     private TextView extraText;
     private ImageView iconView;
+    private CheckBox isChecked;
+
+    public boolean getIsChecked() {
+        return isChecked.isChecked();
+    }
 
     public ProfileTitle(Context context) {
         super(context);
@@ -32,7 +39,6 @@ public class ProfileTitle extends RelativeLayout {
         init(attrs, context);
     }
 
-
     protected void init(AttributeSet attrs, Context context) {
         inflate(getContext(), R.layout.profile_title, this);
 
@@ -48,10 +54,12 @@ public class ProfileTitle extends RelativeLayout {
             mainText = (TextView) findViewById(R.id.profile_title_name);
             extraText = (TextView) findViewById(R.id.profile_title_email);
             iconView = (ImageView) findViewById(R.id.profile_title_icon);
+            isChecked = (CheckBox) findViewById(R.id.profile_title_checkbox);
 
             mainText.setText(main);
             extraText.setText(extra);
             iconView.setImageDrawable(icon);
+            isChecked.setChecked(false);
 
             invalidate();
             requestLayout();
@@ -59,5 +67,12 @@ public class ProfileTitle extends RelativeLayout {
         finally {
             array.recycle();
         }
+    }
+
+    public void populate(Profile profile) {
+        mainText.setText(profile.getName());
+        extraText.setText(profile.getEmail());
+        iconView.setImageDrawable(this.getContext().getResources().getDrawable(profile.getIcon()));
+        isChecked.setChecked(false);
     }
 }

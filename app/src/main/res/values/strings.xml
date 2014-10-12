@@ -7,5 +7,7 @@
     <string name="profile_title_icon_comment">Profile picture</string>
     <string name="name">Lyke Wan Dirge</string>
     <string name="email">somt@naty.cot</string>
+    <string name="btnExtractName">Extract</string>
+    <string name="title_activity_filter">FilterActivity</string>
 
 </resources>
